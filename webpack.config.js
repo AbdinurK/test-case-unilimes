@@ -7,7 +7,7 @@ const webpackMode = process.env.NODE_ENV || 'development'
 module.exports = {
   mode: webpackMode,
   entry: { 
-    main: './src/index.js',
+    main: './index.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -36,7 +36,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin( {
       title:"",
-      template: "./src/index.html",
+      template: "./index.html",
       filename: "index.html",
       minify: process.env.NODE_ENV === 'production' ? {
         collapseWhitespace: true,
