@@ -143,6 +143,18 @@ function createGeometry(type, scale) {
     }
 }
 
+
+
+function deleteGeometry(uuid) {
+    const object = scene.getObjectByProperty('uuid', uuid);
+
+    object.geometry.dispose( )
+    object.material.dispose( )
+    scene.remove(object);
+    render()
+}
+
+
 const list = () => scene.traverse( function( object ) {
 
     if ( object.isMesh ) {
@@ -157,17 +169,6 @@ const list = () => scene.traverse( function( object ) {
         listNode.appendChild(node);
     }
 } );
-
-
-function deleteGeometry(uuid) {
-    const object = scene.getObjectByProperty('uuid', uuid);
-
-    console.log(object, uuid);
-    object.geometry.dispose( )
-    object.material.dispose( )
-    scene.remove(object);
-    render()
-}
 
 function render() {
     renderer.render( scene, camera );
